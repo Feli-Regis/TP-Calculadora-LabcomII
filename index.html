@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora EPE</title>
+    <script src="js/index.js" defer></script>
+    <link rel="stylesheet" href="css/index.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500&display=swap");
+    </style>
+  </head>
+
+  <div class="wrapper">
+    <header>
+      <a href="#" class="logo"
+        ><img src="img/logo.jpg" alt="logo" class="logo"
+      /></a>
+    </header>
+    <body>
+      <main class="form-container">
+        <form name="calculadora">
+          <h3>CALCULADORA DE COSTO DE ENERGÍA ELÉCTRICA</h3>
+          <div class="item-form">Tipo de usuario</div>
+          <input
+            class="item-form input-radio"
+            type="radio"
+            name="tipo-de-usuario"
+            value="Residencial"
+            checked
+          />
+          <label class="item-form" for="residencial"
+            >Residencial (aplica IVA 21%)</label
+          >
+          <br />
+          <input
+            class="item-form input-radio"
+            type="radio"
+            name="tipo-de-usuario"
+            value="Industrial"
+          />
+          <label class="item-form" for="Industrial"
+            >Industrial (aplica IVA 27%)</label
+          >
+
+          <div class="item-form">Zona del domicilio</div>
+          <select class="item-form input" name="selector" id="">
+            <option selected="true" disabled="disabled">
+              --Seleccione su zona--
+            </option>
+            <option>DISTRITO CENTRO</option>
+            <option>DISTRITO OESTE</option>
+            <option>DISTRITO NORTE</option>
+            <option>DISTRITO SUR</option>
+          </select>
+          <div class="item-form">Cantidad de kWh del mes</div>
+          <input type="number" class="item-form input-box" required />
+          <br /><button class="item-form btn-submit">CALCULAR</button>
+        </form>
+      </main>
+    </body>
+  </div>
+</html>
