@@ -1,13 +1,13 @@
 /* 
  Trabajo Practico Laboratorio de programacion II
  Codigo JS
- 
+
  consigna:
 
  Requerimientos Técnicos y Funcionales 
 
  CAMPOS DE ENTRADA DEL FORMULARIO 
- La calculadora deberá permitir al usuario cargar  3 campos diferentes para poder 
+ La calculadora deberá permitir al usuario cargar 3 campos diferentes para poder 
  realizar el cálculo del costo en pesos, los cuales son:
 
   ● Tipo de usuario (input radio de selección única): 
@@ -16,7 +16,7 @@
 
   ● Zona del domicilio (input select): 
   ○ Distrito Centro: $5,80 por kWh 
-  ○ Distrito Zur: $5.40 por kWh 
+  ○ Distrito Sur: $5.40 por kWh 
   ○ Distrito Oeste: $5.35 por kWh 
   ○ Distrito Norte: $5.60 por kWh 
   
@@ -45,3 +45,41 @@
    102 $ + 60 kWh * 5.80 $/kWh * (1 + 0.21) = $ 523.08. 
  
  */
+
+let input_consumo = null; //aca llegaria el input del formulario
+//Puedes seleccionar un elemento a través de su identificador único (id) utilizando el método getElementById(). ??
+let consumo = null;
+
+let zona = {
+    centro: 5.58,
+    sur: 5.40,
+    oeste: 5.35,
+    norte: 5.60
+};
+
+let iva = {
+    residencial: 0.21,
+    industrial: 0.27
+};
+
+
+//aca se validaria que no sea negativo o cero
+if (input_consumo > 0) {
+    consumo = input_consumo;
+}
+else {
+    //devolver error
+    //alert??
+}
+
+//costo fijo de servicio mensual
+const costoServicio = 102;
+
+//funcion principal que calcula el monto a pagar
+function calculadora(zona, iva, consumo) {
+    return costoServicio + (consumo * zona) * (1 + iva);
+}
+
+//ejemplo
+pasaje12 = calculadora(zona.centro, iva.residencial, 120);
+print(pasaje12);
