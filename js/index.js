@@ -46,9 +46,8 @@
  
  */
 
-let input_consumo = null; //aca llegaria el input del formulario
-//Puedes seleccionar un elemento a través de su identificador único (id) utilizando el método getElementById(). ??
-let consumo = null;
+//costo fijo de servicio mensual
+const costoServicio = 102;
 
 let zona = {
     centro: 5.58,
@@ -63,23 +62,15 @@ let iva = {
 };
 
 
-//aca se validaria que no sea negativo o cero
-if (input_consumo > 0) {
-    consumo = input_consumo;
-}
-else {
-    //devolver error
-    //alert??
-}
-
-//costo fijo de servicio mensual
-const costoServicio = 102;
-
-//funcion principal que calcula el monto a pagar
+//funcion principal que calcula el monto a pagar y validacion
 function calculadora(zona, iva, consumo) {
+  if (consumo > 0) {
     return costoServicio + (consumo * zona) * (1 + iva);
-}
-
+  }
+  else {
+    //tirar alert de error
+  }
+};
 //ejemplo
 pasaje12 = calculadora(zona.centro, iva.residencial, 120);
 print(pasaje12);
