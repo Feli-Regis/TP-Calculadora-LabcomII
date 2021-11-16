@@ -45,7 +45,7 @@ main {
 .form-container {
   display: flex;
   width: 30em;
-  height: 45em;
+  height: 50em;
   margin: 1em;
   background-color: white;
   color: black;
@@ -72,6 +72,18 @@ main {
 
 .form-container h3 {
   font-size: 1.75em;
+}
+span {
+  font-size: 1.25em;
+  font-weight: 500;
+}
+.output {
+  color: #005da2;
+  display: flex;
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-top: 1em;
+  justify-content: center;
 }
 
 .input:hover {
@@ -103,9 +115,11 @@ main {
 }
 
 .btn-submit {
-  font-weight: 400;
+  font-weight: 500;
+  font-size: 1.25em;
   padding: 0.5em;
-  border-radius: 2.5px;
+  margin-top: 1.5em;
+  border-radius: 4px;
 }
 
 .btn-submit:hover {

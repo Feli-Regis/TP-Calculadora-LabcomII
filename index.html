@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora EPE</title>
-    <script src="js/index.js" defer></script>
+    <script src="js/index.js" async></script>
     <link rel="stylesheet" href="css/index.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500&display=swap");
@@ -18,16 +18,18 @@
         ><img src="img/logo.jpg" alt="logo" class="logo"
       /></a>
     </header>
+
     <body>
       <main class="form-container">
         <form name="calculadora">
           <h3>CALCULADORA DE COSTO DE ENERGÍA ELÉCTRICA</h3>
           <div class="item-form">Tipo de usuario</div>
           <input
+            id="tipo-usuario"
             class="item-form input-radio"
             type="radio"
             name="tipo-de-usuario"
-            value="Residencial"
+            value="0.21"
             checked
           />
           <label class="item-form" for="residencial"
@@ -35,28 +37,51 @@
           >
           <br />
           <input
+            id="tipo-usuario"
             class="item-form input-radio"
             type="radio"
             name="tipo-de-usuario"
-            value="Industrial"
+            value="0.27"
           />
           <label class="item-form" for="Industrial"
             >Industrial (aplica IVA 27%)</label
           >
 
           <div class="item-form">Zona del domicilio</div>
-          <select class="item-form input" name="selector" id="">
-            <option selected="true" disabled="disabled">
+          <select
+            class="item-form input"
+            name="selector"
+            id="zona-domicilio"
+            required
+          >
+            <option value="" selected="selected" disabled="disabled">
               --Seleccione su zona--
             </option>
-            <option>DISTRITO CENTRO</option>
-            <option>DISTRITO OESTE</option>
-            <option>DISTRITO NORTE</option>
-            <option>DISTRITO SUR</option>
+            <option value="5.58">DISTRITO CENTRO ($5,80 por kWh)</option>
+            <option value="5.35">DISTRITO OESTE ($5,35 por kWh)</option>
+            <option value="5.60">DISTRITO NORTE ($5,60 por kWh)</option>
+            <option value="5.40">DISTRITO SUR ($5,40 por kWh)</option>
           </select>
           <div class="item-form">Cantidad de kWh del mes</div>
-          <input type="number" class="item-form input-box" required />
-          <br /><button class="item-form btn-submit">CALCULAR</button>
+          <input
+            type="number"
+            class="item-form input-box"
+            id="input-consumo"
+            placeholder="kWh"
+            required
+          />
+          <br />
+          <input
+            id="btn-submit"
+            class="btn-submit"
+            type="button"
+            value="CALCULAR"
+            onclick="calculadora()"
+          />
+          <br /><br />
+          <span id="output-text"></span>
+          <br />
+          <p class="output" id="costo-total"></p>
         </form>
       </main>
     </body>

@@ -46,40 +46,24 @@
  
  */
 
-let input_consumo = null; //aca llegaria el input del formulario
-//Puedes seleccionar un elemento a través de su identificador único (id) utilizando el método getElementById(). ??
-let consumo = null;
-
-let zona = {
-    centro: 5.58,
-    sur: 5.40,
-    oeste: 5.35,
-    norte: 5.60
-};
-
-let iva = {
-    residencial: 0.21,
-    industrial: 0.27
-};
-
-
-//aca se validaria que no sea negativo o cero
-if (input_consumo > 0) {
-    consumo = input_consumo;
-}
-else {
-    //devolver error
-    //alert??
-}
-
-//costo fijo de servicio mensual
 const costoServicio = 102;
 
-//funcion principal que calcula el monto a pagar
-function calculadora(zona, iva, consumo) {
-    return costoServicio + (consumo * zona) * (1 + iva);
-}
+let btnCalcular = document.getElementById("btn-submit");
 
-//ejemplo
-pasaje12 = calculadora(zona.centro, iva.residencial, 120);
-print(pasaje12);
+btnCalcular.onclick = function calculadora() {
+  var iva = document.querySelector("input[name=tipo-de-usuario]:checked").value;
+  ivaValue = iva;
+  var zonaDomicilio = document.getElementById("zona-domicilio");
+  var zona = zonaDomicilio.options[zonaDomicilio.selectedIndex].value;
+  var consumo = document.getElementById("input-consumo").value;
+
+  if (consumo > 0 && zona > 0) {
+    costoTotal = costoServicio + consumo * zona * (1 + ivaValue);
+    document.getElementById("costo-total").innerHTML = costoTotal;
+    outputText = "El costo total es de:";
+    document.getElementById("output-text").innerHTML = outputText;
+    return outputTtext, costoTotal.toFixed;
+  } else {
+    alert("Por favor, complete todos los campos");
+  }
+};
