@@ -61,6 +61,12 @@ let iva = {
     industrial: 0.27
 };
 
+function datos(){
+  let varPrueba
+  varPrueba = document.getElementsByClassName("item-form").value;
+  alert(varPrueba);
+}
+
 
 //funcion principal que calcula el monto a pagar y validacion
 function calculadora(zona, iva, consumo) {
@@ -71,6 +77,6 @@ function calculadora(zona, iva, consumo) {
     //tirar alert de error
   }
 };
-//ejemplo
-pasaje12 = calculadora(zona.centro, iva.residencial, 120);
-print(pasaje12);
+//ejemplo //FUNCIONA
+// pasaje12 = calculadora(zona.centro, iva.residencial, 120);
+// console.log(pasaje12);
