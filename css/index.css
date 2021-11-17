@@ -146,9 +146,7 @@ span {
   outline: none;
 }
 
-
 @media screen and (min-width: 280px) and (max-width: 653px) {
-
   header {
     height: 50px;
   }
@@ -160,12 +158,9 @@ span {
   main {
     font-size: 55%;
   }
-
 }
 
-
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-
   header {
     height: 70px;
   }
@@ -177,11 +172,9 @@ span {
   main {
     font-size: 75%;
   }
-
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1366px) {
-
   header {
     height: 80px;
   }
@@ -193,6 +186,4 @@ span {
   main {
     font-size: 75%;
   }
-
 }
-
