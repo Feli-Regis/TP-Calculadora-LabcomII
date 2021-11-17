@@ -73,7 +73,7 @@ btnCalcular.onclick = function calculadora() {
     costoTotal = costoServicio + (consumo * zona) * (1 + ivaValue);
     costoTotal = costoTotal.toFixed(2);
     document.getElementById("costo-total").innerHTML = "$" + costoTotal;
-    outputText = "El costo total es de:";
+    outputText = "IMPORTE TOTAL:";
     document.getElementById("output-text").innerHTML = outputText;
     return outputTtext, costoTotal;
   }
