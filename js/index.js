@@ -45,8 +45,9 @@
    102 $ + 60 kWh * 5.80 $/kWh * (1 + 0.21) = $ 523.08. 
  
  */
-
 const costoServicio = 102;
+var zonaValidacion = 0;
+var consumoValidacion = 0;
 
 let btnCalcular = document.getElementById("btn-submit");
 
@@ -56,14 +57,24 @@ btnCalcular.onclick = function calculadora() {
   var zonaDomicilio = document.getElementById("zona-domicilio");
   var zona = zonaDomicilio.options[zonaDomicilio.selectedIndex].value;
   var consumo = document.getElementById("input-consumo").value;
-  outputText = "El costo total es de:";
-  document.getElementById("output-text").innerHTML = outputText;
 
-  if (consumo > 0 && zona > 0) {
-    costoTotal = costoServicio + consumo * zona * (1 + ivaValue);
-    document.getElementById("costo-total").innerHTML = "$" + costoTotal;
-    return outputTtext, costoTotal.toFixed(2);
+  if (zona > 0) {
+    zonaValidacion = 1;
   } else {
-    alert("Por favor, complete todos los campos");
+    alert("Por favor, seleccione la zona del domicilio.");
+  }
+  if (consumo > 0) {
+    consumoValidacion = 1;
+  } else {
+    alert("El consumo en kWh debe ser mayor a cero.");
+  }
+
+  if (zonaValidacion == 1 && consumoValidacion == 1) {
+    costoTotal = costoServicio + consumo * zona * (1 + ivaValue);
+    costoTotal = parseFloat(costoTotal).toFixed(2);
+    document.getElementById("costo-total").innerHTML = "$" + costoTotal;
+    outputText = "El costo total es de:";
+    document.getElementById("output-text").innerHTML = outputText;
+    return outputTtext, costoTotal;
   }
 };
