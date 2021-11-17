@@ -53,7 +53,7 @@ let btnCalcular = document.getElementById("btn-submit");
 
 btnCalcular.onclick = function calculadora() {
   var iva = document.querySelector("input[name=tipo-de-usuario]:checked").value;
-  ivaValue = iva;
+  ivaValue = Number(iva);
   var zonaDomicilio = document.getElementById("zona-domicilio");
   var zona = zonaDomicilio.options[zonaDomicilio.selectedIndex].value;
   var consumo = document.getElementById("input-consumo").value;
@@ -70,7 +70,7 @@ btnCalcular.onclick = function calculadora() {
   }
 
   if (zonaValidacion == 1 && consumoValidacion == 1) {
-    costoTotal = costoServicio + consumo * zona * (1 + ivaValue);
+    costoTotal = costoServicio + (consumo * zona) * (1 + ivaValue);
     costoTotal = costoTotal.toFixed(2);
     document.getElementById("costo-total").innerHTML = "$" + costoTotal;
     outputText = "El costo total es de:";
