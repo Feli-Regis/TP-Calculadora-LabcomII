@@ -52,25 +52,24 @@ var consumoValidacion = 0;
 let btnCalcular = document.getElementById("btn-submit");
 
 btnCalcular.onclick = function calculadora() {
-  var iva = document.querySelector("input[name=tipo-de-usuario]:checked").value;
-  ivaValue = Number(iva);
-  var zonaDomicilio = document.getElementById("zona-domicilio");
-  var zona = zonaDomicilio.options[zonaDomicilio.selectedIndex].value;
-  var consumo = document.getElementById("input-consumo").value;
+  obtenerIva();
+  obtenerZona();
+  obtenerConsumo();
 
-  if (zona > 0) {
+  if (zonaValue > 0) {
     zonaValidacion = 1;
   } else {
     alert("Por favor, seleccione la zona del domicilio.");
   }
-  if (consumo > 0) {
+
+  if (consumoValue > 0) {
     consumoValidacion = 1;
   } else {
     alert("El consumo en kWh debe ser mayor a cero.");
   }
 
   if (zonaValidacion == 1 && consumoValidacion == 1) {
-    costoTotal = costoServicio + (consumo * zona) * (1 + ivaValue);
+    costoTotal = costoServicio + consumoValue * zonaValue * (1 + ivaValue);
     costoTotal = costoTotal.toFixed(2);
     document.getElementById("costo-total").innerHTML = "$" + costoTotal;
     outputText = "IMPORTE TOTAL:";
@@ -78,3 +77,43 @@ btnCalcular.onclick = function calculadora() {
     return outputTtext, costoTotal;
   }
 };
+
+function obtenerIva() {
+  var iva = document.querySelector("input[name=tipo-de-usuario]:checked").value;
+  switch (iva) {
+    case "residencial":
+      iva = 0.21;
+      break;
+    case "industrial":
+      iva = 0.27;
+      break;
+  }
+  ivaValue = iva;
+  return ivaValue;
+}
+
+function obtenerZona() {
+  var zonaDomicilio = document.getElementById("zona-domicilio");
+  var zona = zonaDomicilio.options[zonaDomicilio.selectedIndex].value;
+
+  switch (zona) {
+    case "centro":
+      zonaValue = 5.8;
+      break;
+    case "oeste":
+      zonaValue = 5.35;
+      break;
+    case "norte":
+      zonaValue = 5.6;
+      break;
+    case "sur":
+      zonaValue = 5.4;
+      break;
+  }
+  return zonaValue;
+}
+function obtenerConsumo() {
+  var consumo = document.getElementById("input-consumo").value;
+  consumoValue = consumo;
+  return consumoValue;
+}
