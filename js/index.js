@@ -45,36 +45,72 @@
    102 $ + 60 kWh * 5.80 $/kWh * (1 + 0.21) = $ 523.08. 
  
  */
-const costoServicio = 102;
-var zonaValidacion = 0;
-var consumoValidacion = 0;
+   const costoServicio = 102;
 
-let btnCalcular = document.getElementById("btn-submit");
-
-btnCalcular.onclick = function calculadora() {
-  var iva = document.querySelector("input[name=tipo-de-usuario]:checked").value;
-  ivaValue = Number(iva);
-  var zonaDomicilio = document.getElementById("zona-domicilio");
-  var zona = zonaDomicilio.options[zonaDomicilio.selectedIndex].value;
-  var consumo = document.getElementById("input-consumo").value;
-
-  if (zona > 0) {
-    zonaValidacion = 1;
-  } else {
-    alert("Por favor, seleccione la zona del domicilio.");
-  }
-  if (consumo > 0) {
-    consumoValidacion = 1;
-  } else {
-    alert("El consumo en kWh debe ser mayor a cero.");
-  }
-
-  if (zonaValidacion == 1 && consumoValidacion == 1) {
-    costoTotal = costoServicio + (consumo * zona) * (1 + ivaValue);
-    costoTotal = costoTotal.toFixed(2);
-    document.getElementById("costo-total").innerHTML = "$" + costoTotal;
-    outputText = "El costo total es de:";
-    document.getElementById("output-text").innerHTML = outputText;
-    return outputTtext, costoTotal;
-  }
-};
+   ivaObject = {
+     residencial: 0.21,
+     industrial: 0.27,
+   };
+   
+   zonaObject = {
+     centro: 5.80,
+     oeste: 5.35,
+     norte: 5.60,
+     sur: 5.40,
+   };
+   
+   let btnCalcular = document.getElementById("btn-submit");
+   
+   btnCalcular.onclick = function calculadora() {
+     ivaValue = obtenerIva();
+     zonaValue = obtenerZona();
+     consumoValue = obtenerConsumo();
+   
+     if (!zonaValue) {
+       alert("Por favor, seleccione la zona del domicilio.");
+     }
+   
+     if (!consumoValue) {
+       alert("El consumo en kWh debe ser mayor a cero.");
+     }
+   
+     if (zonaValue && consumoValue) {
+       costoTotal = costoServicio + consumoValue * zonaValue * (1 + ivaValue);
+       costoTotal = costoTotal.toFixed(2);
+       document.getElementById("costo-total").innerHTML = "$" + costoTotal;
+       outputText = "IMPORTE TOTAL:";
+       document.getElementById("output-text").innerHTML = outputText;
+       return outputTtext, costoTotal;
+     }
+   };
+   
+   function obtenerIva() {
+     var iva = document.querySelector("input[name=tipo-de-usuario]:checked").value;
+     switch (iva) {
+       case "residencial":
+         return ivaObject.residencial;
+       case "industrial":
+         return ivaObject.industrial;
+     }
+   }
+   
+   function obtenerZona() {
+     var zonaDomicilio = document.getElementById("zona-domicilio");
+     var zona = zonaDomicilio.options[zonaDomicilio.selectedIndex].value;
+   
+     switch (zona) {
+       case "centro":
+         return zonaObject.centro;
+       case "oeste":
+         return zonaObject.oeste;
+       case "norte":
+         return zonaObject.norte;
+       case "sur":
+         return zonaObject.sur;
+     }
+   }
+   
+   function obtenerConsumo() {
+     return document.getElementById("input-consumo").value;
+   }
+   

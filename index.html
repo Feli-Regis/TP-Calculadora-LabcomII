@@ -29,7 +29,7 @@
             class="item-form input-radio"
             type="radio"
             name="tipo-de-usuario"
-            value="0.21"
+            value="residencial"
             checked
           />
           <label class="item-form" for="residencial"
@@ -41,7 +41,7 @@
             class="item-form input-radio"
             type="radio"
             name="tipo-de-usuario"
-            value="0.27"
+            value="industrial"
           />
           <label class="item-form" for="Industrial"
             >Industrial (aplica IVA 27%)</label
@@ -57,10 +57,10 @@
             <option value="" selected="selected" disabled="disabled">
               --Seleccione su zona--
             </option>
-            <option value="5.80">DISTRITO CENTRO ($5,80 por kWh)</option>
-            <option value="5.35">DISTRITO OESTE ($5,35 por kWh)</option>
-            <option value="5.60">DISTRITO NORTE ($5,60 por kWh)</option>
-            <option value="5.40">DISTRITO SUR ($5,40 por kWh)</option>
+            <option value="centro">DISTRITO CENTRO ($5,80 por kWh)</option>
+            <option value="oeste">DISTRITO OESTE ($5,35 por kWh)</option>
+            <option value="norte">DISTRITO NORTE ($5,60 por kWh)</option>
+            <option value="sur">DISTRITO SUR ($5,40 por kWh)</option>
           </select>
           <div class="item-form">Cantidad de kWh del mes</div>
           <input
@@ -79,9 +79,10 @@
             onclick="calculadora()"
           />
           <br /><br />
-          <span id="output-text"></span>
-          <br />
-          <p class="output" id="costo-total"></p>
+          <div class="output-box">
+            <span id="output-text"></span>
+            <p class="output" id="costo-total"></p>
+          </div>
         </form>
       </main>
     </body>
