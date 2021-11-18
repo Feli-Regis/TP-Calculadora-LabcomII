@@ -45,7 +45,7 @@ main {
 .form-container {
   display: flex;
   width: 30em;
-  height: 50em;
+  height: 47em;
   margin: 1em;
   background-color: white;
   color: black;
@@ -73,17 +73,30 @@ main {
 .form-container h3 {
   font-size: 1.75em;
 }
-span {
+
+.form-container .output-box {
+  display: flex;
+  align-items: baseline;
+  background-color: white;
+  justify-content: space-between;
+  padding: 1px;
+  margin-top: 1em;
+  border-top: solid lightgray;
+}
+
+#output-text {
+  display: block;
+  color: #005da2;
   font-size: 1.25em;
   font-weight: 500;
+  text-shadow: 1px 1px lightgray;
 }
+
 .output {
   color: #005da2;
-  display: flex;
-  font-size: 2.5em;
+  font-size: 1.75em;
   font-weight: 600;
-  margin-top: 1em;
-  justify-content: center;
+  text-shadow: 1px 1px lightgray;
 }
 
 .input:hover {
@@ -132,10 +145,28 @@ span {
   transition: all 100ms ease-in-out;
   outline: none;
 }
+footer {
+  display: flex;
+  background-color: #707788;
+  color: white;
+  height: 14vh;
+  margin: 0.5em;
+  padding: 0.5em;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 0px 0px 7px rgb(82, 81, 81);
+  border-radius: 3px;
+  text-transform: uppercase;
+  color: white;
+}
 
+.nombre-empresa {
+  font-size: 1.25em;
+  font-weight: 400;
+  text-shadow: 0px 0px 5px rgb(19, 19, 18);
+}
 
 @media screen and (min-width: 280px) and (max-width: 653px) {
-
   header {
     height: 50px;
   }
@@ -146,19 +177,14 @@ span {
 
   main {
     font-size: 55%;
-    
   }
-  
+
   .form-container {
     height: 55%;
   }
-
-
 }
 
-
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-
   header {
     height: 70px;
   }
@@ -170,11 +196,9 @@ span {
   main {
     font-size: 75%;
   }
-
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1366px) {
-
   header {
     height: 80px;
   }
@@ -186,6 +210,4 @@ span {
   main {
     font-size: 75%;
   }
-
 }
-

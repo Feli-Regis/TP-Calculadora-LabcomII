@@ -80,7 +80,7 @@
        document.getElementById("costo-total").innerHTML = "$" + costoTotal;
        outputText = "IMPORTE TOTAL:";
        document.getElementById("output-text").innerHTML = outputText;
-       return outputTtext, costoTotal;
+       return outputText, costoTotal;
      }
    };
    
